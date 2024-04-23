@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange_light">
+
+    <TextView
+        android:id="@+id/textViewTituloCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastro de Restaurante"
+        android:textColor="@color/brown_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/textViewTituloCadastro"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Endereço"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/editTextNome"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextLatitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Latitude"
+        android:inputType="numberDecimal"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/editTextEndereco"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Longitude"
+        android:inputType="numberDecimal"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/editTextLatitude"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextTipoComida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tipo de Comida"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/editTextLongitude"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextClassificacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Classificação"
+        android:inputType="number"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/editTextTipoComida"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descrição"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/editTextClassificacao"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/editTextDescricao"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnVerLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Lista"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/btnSalvar"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
