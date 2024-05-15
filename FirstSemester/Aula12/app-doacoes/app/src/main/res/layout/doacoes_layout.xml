@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtEstado"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="App de Doações"
+        android:textAlignment="center"
+        android:textSize="38sp" />
+
+    <EditText
+        android:id="@+id/txtProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Produto" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Estado" />
+
+    <Button
+        android:id="@+id/btnLer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4ABEFB"
+        android:text="Listar" />
+
+    <Button
+        android:id="@+id/btnGravar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#318C00"
+        android:text="Gravar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvDoacoes"
+        android:layout_width="match_parent"
+        android:layout_height="204dp" />
+</LinearLayout>
