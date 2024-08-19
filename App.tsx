@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import {
   Image,
@@ -7,10 +5,13 @@ import {
   Text,
   View,
   SafeAreaView,
-  TextInput
+  TextInput,
+  Alert,
+  Button
 } from 'react-native';
 
 
+/*
 const TextoClick = () => {
   const [titleText, TextoClick] = useState("Veja a mensagem [Aperte aqui]")
   const bodyText = "Melhor Faculdade de Tecnologia";
@@ -81,6 +82,14 @@ const TextoClick = () => {
           value={text}>
 
           </TextInput>
+          <TextInput 
+          style = {styles.input}
+          onChangeText = {onChangeNumber}
+          value={number}
+          placeholder= "DIGITE UM NÚMERO"
+          keyboardType= "numeric">
+
+          </TextInput>
         </SafeAreaView>
       </View>
       <View
@@ -103,7 +112,9 @@ const TextoClick = () => {
    </>
     )
 };
+*/
 
+/*
 const styles = StyleSheet.create({
   baseText: {
     fontFamily: "Cochin",
@@ -124,9 +135,14 @@ const styles = StyleSheet.create({
   logo: {
     width: 60,
     height: 60
+  },
+  input: {
+    height:40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10
   }
 })
-
 const Nome = () => {
   return(
         <Text>Bem Vindo Breno</Text>
@@ -137,6 +153,64 @@ const Faculdade = () => {
         <Text>Você está na Fatec Zona Leste</Text>
   )
 }
+*/
+
+const Separator = () => <View style = {styles.separator} />;
+
+const App = () => (
+  <SafeAreaView style = {styles.container}>
+    <View>
+      <Text style = {styles.title}>
+      O título e o manipulador onPress são necessários.
+      Recomenda-se definir acessibilityLabel para ajudar
+      a tornar seu aplicativo utilizável por todos.
+      </Text>
+
+      <Button 
+        title = "Aperte Aqui"
+        color= "f194ff"
+        onPress = {() => Alert.alert('Saída simpes de um botão')}
+      />
+
+    </View>
+
+    <Separator/>
+
+    <View>
+      <Text style={StyleSheet.title}>
+        Todas as interações para o componente estão desabilitadas.
+      </Text>
+
+      <Button 
+        title = "Aperte Aqui"
+        disabled
+        onPress = {() => Alert.alert('Não é possível pressionar!')}
+      />
+
+    </View>
+
+    <Separator/>
+
+    <View>
+      <Text style={styles.title}>
+        Essa estratégia de layout permite que o 
+        título defina a largura do botão.
+      </Text>
+        <View style= { styles.fixToText}>
+          <Button 
+          title = "Botão da Esquerda"
+          onPress = {() => Alert.alert('Botão da Esquerda, aperte.')}
+          />
+          <Button 
+          title = "Botão da Direita"
+          disabled
+          onPress = {() => Alert.alert('Botão da Direita, aperte.')}
+          />
+        </View>
+    </View>
+
+  </SafeAreaView>
+)
 
 
 
