@@ -1,38 +1,48 @@
-import React, { useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import {
-  Text, View, StyleSheet, BackHandler, Alert
+  Text, Button, View, StyleSheet, DrawerLayoutAndroid
 } from 'react-native';
 
-const App = () => {
-  useEffect(() => {
-    const backAction = () => {
-      Alert.alert('Espere um pouco!', 'Tem certeza que quer voltar?',[
-        {
-          text: 'Cancelar?',
-          onPress: () => null,
-          style: 'cancel',
-        },
-        {
-          text: 'Sim',
-          onPress: () => BackHandler.exitApp(),
-        }
-      ]);
-      return true;
-    };
+const App =() => {
+  const drawer = useRef (null);
+  const [drawerPosition, setDrawerPosition] = useState('left');
+  const changeDrawerPosition = () => {
+    if (drawerPosition === 'left') {
+      setDrawerPosition('right')
+    }
+    else{
+      setDrawerPosition('left')
+    }
+  };
 
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction,
-    );
-
-    return () => backHandler.remove();
-  }, []);
-
-  return (
-    <View style = {styles.container}>
-      <Text style = {styles.text}> Aperte o Botão!</Text>
+  const navigationView = () => (
+    <View style = {[styles.container, styles.navigationContainer]}>
+      <Text style = {styles.paragraph}>I'm in the Drawer</Text>
+      <Button title='Fechar o Drawer' onPress={() => drawer.current.closeDrawer()} />
     </View>
+  );
+
+  return(
+    <DrawerLayoutAndroid
+      ref={drawer}
+      drawerWidth={300}
+      drawerPosition={drawerPosition}
+      renderNavigationView={navigationView}>
+        <View style = {styles.container}>
+          <Text style ={styles.paragraph}> Drawer on the {drawerPosition}!</Text>
+          <Button 
+            title = "Carregando o Drawer"
+            onPress={() => changeDrawerPosition()}
+            />
+            <Text style ={styles.paragraph}> Deslize do lado ou pressione o botão abaixo para vê-lo!</Text>
+          <Button 
+            title = "Carregando o Drawer"
+            onPress={() => drawer.current.openDrawer()}
+            />
+        </View>
+      </DrawerLayoutAndroid>
   )
+
 }
 
 
@@ -40,14 +50,18 @@ const styles = StyleSheet.create({
   container:{
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 16
   },
-  text:{
-    fontSize: 18,
-    fontWeight: 'bold'
+  navigationContainer: {
+    backgroundColor: '#ecf0f1'
+  },
+  paragraph:{
+    padding: 16,
+    fontSize: 15,
+    textAlign: 'center',
   }
 })
-
 
 
 export default App;
