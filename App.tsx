@@ -13,7 +13,7 @@ const App = () => {
           style: 'cancel',
         },
         {
-          text: 'Cancelar?',
+          text: 'Sim',
           onPress: () => BackHandler.exitApp(),
         }
       ]);
