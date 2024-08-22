@@ -238,16 +238,24 @@ const styles = StyleSheet.create({
 
 const DATA = [
   {
-    id: '1',
-    title: 'Primeiro Título'
+    title: 'Pratos Principais',
+    data: ['Pizza', 'Hamburguer', 'Risotto']
+
   },
   {
-    id: '2',
-    title: 'Segundo Título'
+    title: 'Pratos de Chefe',
+    data: ['Frango Frito', 'Cebolas Empanadas', 'Batata Frita']
+
   },
   {
-    id: '3',
-    title: 'Terceiro Título'
+    title: 'Bebidas',
+    data: ['Água', 'Pepsi', 'Suco']
+
+  },
+  {
+    title: 'Sobremesas',
+    data: ['Pudim', 'Sorvete']
+
   }
 ]
 
@@ -262,10 +270,17 @@ const Item = ({ title }: ItemProps) => (
 const Comp = () => {
   return(
   <SafeAreaView style={styles.container}>
-    <FlatList
-    data={DATA}
-    renderItem={({ item }) => <Item title={item.title}/>}
-    keyExtractor={item => item.id}
+    <SectionList
+    sections={DATA}
+    keyExtractor={(item, index) => item + index}
+    renderItem={({item}) => (
+      <View style={styles.item}>
+        <Text style={styles.title}>{item}</Text>
+      </View>
+    )}
+    renderSectionHeader={({ section: {title}}) => (
+      <Text style = {styles.header}>{title}</Text>
+    )}
     />
   </SafeAreaView>
   )
@@ -275,15 +290,19 @@ const styles = StyleSheet.create({
   container:{
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    marginHorizontal: 16
   },
   item:{
     backgroundColor: '#f9c277',
     padding: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
+  },
+  header:{
+    fontSize: 32,
+    backgroundColor: '#fff'
   },
   title:{
-    fontSize: 32
+    fontSize: 24
   }
 });
 
