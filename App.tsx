@@ -168,8 +168,8 @@ const App = () => (
 
       <Button 
         title = "Aperte Aqui"
-        color= "f194ff"
-        onPress = {() => Alert.alert('Saída simpes de um botão')}
+        color= "red"
+        onPress = {() => Alert.alert('Saída simples de um botão')}
       />
 
     </View>
@@ -177,7 +177,7 @@ const App = () => (
     <Separator/>
 
     <View>
-      <Text style={StyleSheet.title}>
+      <Text style={styles.title}>
         Todas as interações para o componente estão desabilitadas.
       </Text>
 
@@ -203,7 +203,6 @@ const App = () => (
           />
           <Button 
           title = "Botão da Direita"
-          disabled
           onPress = {() => Alert.alert('Botão da Direita, aperte.')}
           />
         </View>
@@ -212,6 +211,27 @@ const App = () => (
   </SafeAreaView>
 )
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    marginHorizontal: 16,
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 16,
+  },
+  fixToText:{
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  separator:{
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth
+  }
+})
 
 
-export default TextoClick;
+
+export default App;
