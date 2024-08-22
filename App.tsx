@@ -7,7 +7,10 @@ import {
   SafeAreaView,
   TextInput,
   Alert,
-  Button
+  Button,
+  FlatList,
+  StatusBar,
+  SectionList
 } from 'react-native';
 
 
@@ -153,7 +156,7 @@ const Faculdade = () => {
         <Text>Você está na Fatec Zona Leste</Text>
   )
 }
-*/
+
 
 const Separator = () => <View style = {styles.separator} />;
 
@@ -231,7 +234,57 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth
   }
 })
+*/
 
+const DATA = [
+  {
+    id: '1',
+    title: 'Primeiro Título'
+  },
+  {
+    id: '2',
+    title: 'Segundo Título'
+  },
+  {
+    id: '3',
+    title: 'Terceiro Título'
+  }
+]
 
+type ItemProps = {title: string};
 
-export default App;
+const Item = ({ title }: ItemProps) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+const Comp = () => {
+  return(
+  <SafeAreaView style={styles.container}>
+    <FlatList
+    data={DATA}
+    renderItem={({ item }) => <Item title={item.title}/>}
+    keyExtractor={item => item.id}
+    />
+  </SafeAreaView>
+  )
+}
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item:{
+    backgroundColor: '#f9c277',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title:{
+    fontSize: 32
+  }
+});
+
+export default Comp;
